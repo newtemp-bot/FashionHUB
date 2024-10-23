@@ -1,13 +1,13 @@
 /* Universal Css */
 :root {
-    --font-primary: 'Poppins', sans-serif; 
-    --font-secondary: 'Montserrat', sans-serif; 
-    --primary-color: #DFC7B1;
-    --secondry-color: #8D654B;
-    --secondry-dark-color: #4A4342;
+    --font-primary: "Poppins", sans-serif;
+    --font-secondary: "Montserrat", sans-serif;
+    --primary-color: #dfc7b1;
+    --secondry-color: #8d654b;
+    --secondry-dark-color: #4a4342;
     --dark-color: #000000;
     --white-color: #ffffff;
-    --nav-white:rgba(255, 255, 255, 0.5);
+    --nav-white: rgba(255, 255, 255, 0.5);
 }
 
 /* Smooth scroll */
@@ -22,27 +22,33 @@ html {
     transition: all 0.3s ease-in-out;
 }
 
-body{
+body {
     z-index: -12;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 0.01rem),
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.1) 1px,
+            transparent 0.01rem
+        ),
         linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 0.01rem);
-      background-size: 50px 50px; /* Grid cell size */
+    background-size: 50px 50px; /* Grid cell size */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    cursor: url("/src/images/circle-cursor.svg") 8 8, auto;
+    position: relative;
+    transition: all 0.8s ease-in-out;
 }
 
-html,body {
+html,
+body {
     font-family: var(--font-secondary); /* Montserrat for body */
     overflow-x: hidden;
 }
- 
+
 /* Common Css */
 .container {
-    z-index: -8;
     background-color: rgba(255, 255, 255, 0.8);
     width: 100%;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 /* Navigation CSS */
@@ -57,7 +63,7 @@ nav {
 
 /* Scrolled nav with animation */
 nav::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -109,7 +115,7 @@ nav.scrolled::after {
 }
 
 .nav-container ul li a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -180,39 +186,52 @@ section ul li {
 }
 
 /* Specific Styles for Each Section */
-#home,#services,#about,#policy   {
+#home,
+#services,
+#about,
+#policy {
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the image */
 }
 
-.container .bg1{
+.container .bg1 {
     position: absolute;
-    top:300px;
+    top: 300px;
     right: -280px;
     z-index: -7;
-    opacity: 40%;
 }
-.container .bg1::before{
-    content: '';
-      position: absolute;
-      top: 50%;
-      right: 80%;
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, var(--primary-color), transparent 20%);
-      border-radius: 50%;
-      z-index: -12;
-      filter: blur(60px);
+.container .bg1::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--secondry-color), transparent 20%);
+    border-radius: 50%;
+    z-index: -12;
+    filter: blur(60px);
 }
-.container .bg2{
+.container .bg2 {
     position: absolute;
     top: -200px;
     left: -300px;
     z-index: -7;
-    opacity: 40%;
 }
-
+.container .bg2::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 150%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--secondry-color), transparent 20%);
+    border-radius: 50%;
+    z-index: -12;
+    filter: blur(60px);
+}
 /* Footer Styling */
 footer {
     background-color: var(--secondry-dark-color);
@@ -276,7 +295,7 @@ footer {
     margin-right: 15px;
     color: var(--white-color);
     font-size: 20px;
-    transition: color 0.3s ease;
+    transition: all 0.02s ease;
 }
 
 .social-links a:hover {
@@ -288,7 +307,7 @@ footer {
     text-align: center;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid var(--secondry-dark-color);
 }
 
 .footer-bottom p {
@@ -323,9 +342,26 @@ footer {
     .footer-container {
         flex-direction: column;
     }
-    
+
     .footer-col {
         margin-bottom: 30px;
     }
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(
+        --secondry-dark-color
+    ); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded edges */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--primary-color); /* Color of the scrollbar track */
+    border-radius: 10px;
+}
