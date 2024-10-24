@@ -19,7 +19,6 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
 }
 
 body {
@@ -34,7 +33,6 @@ body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
     cursor: url("/src/images/circle-cursor.svg") 8 8, auto;
     position: relative;
-    transition: all 0.8s ease-in-out;
 }
 
 html,
@@ -70,7 +68,7 @@ nav::after {
     width: 0;
     height: 0.05rem;
     background-color: var(--secondry-dark-color); /* Color of the border */
-    transition: all 0.2s ease-in-out, left 0.2s ease-in-out; /* Animate the width and position */
+    transition: 0.2s ease-in-out, left 0.2s ease-in-out; /* Animate the width and position */
 }
 
 /* Expanding border animation when scrolled */
@@ -169,24 +167,113 @@ section ul li {
     margin-bottom: 10px; /* Space between list items */
 }
 
-/* Call-to-action Button */
+/* Home Section Styling */
+#home {
+    width: 100% !important;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    padding: 50px 20px;
+}
+
+.home-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.home-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 30px;
+}
+
+.home-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.home-text p {
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
 .cta-button {
-    padding: 10px 20px; /* Button padding */
-    font-size: 1.2rem; /* Font size */
-    color: var(--white-color); /* Text color */
-    background-color: var(--secondry-dark-color); /* Button color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Transition effect */
+    padding: 15px 30px;
+    width: 40%;
+    font-size: 1.2rem;
+    background-color: var(--secondry-dark-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    background-color: var(--primary-color); /* Change color on hover */
+    background-color: var(--primary-color);
 }
 
+.home-images {
+    width: 50%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.abstract-shape {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20%; /* Abstract shape (circle) */
+    clip-path: polygon(50% 0%, 100% 25%, 85% 100%, 15% 100%, 0% 25%); /* Abstract polygon shape */
+}
+
+.abstract-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.abstract-shape img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Different shapes for each image */
+.shape1 {
+    transform: scale(1.8);
+    clip-path: polygon(30% 0%, 100% 38%, 83% 100%, 0% 100%, 0% 30%);
+    position: absolute;
+    bottom: 0;
+    left: 12rem;
+}
+
+.shape2 {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 70% 100%, 0% 50%);
+    transform: scale(1.2);
+    position: absolute;
+    top: 0;
+    right: 2rem;
+}
+
+.shape3 {
+    clip-path: polygon(50% 0%, 100% 25%, 85% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: -6rem;
+    left: 8rem;
+}
+
+
 /* Specific Styles for Each Section */
-#home,
 #services,
 #about,
 #policy {
@@ -295,7 +382,7 @@ footer {
     margin-right: 15px;
     color: var(--white-color);
     font-size: 20px;
-    transition: all 0.02s ease;
+    transition: color 0.02s ease;
 }
 
 .social-links a:hover {
