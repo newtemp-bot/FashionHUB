@@ -8,3 +8,21 @@ window.addEventListener("scroll", function () {
         nav.classList.remove("scrolled");
     }
 });
+const text = "FashionHUB"; // Text to type
+const typingElement = document.getElementById("typing-effect");
+let index = 0;
+
+function typeText() {
+    if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 50); // Adjust speed of typing here
+    }
+}
+
+window.onload = function () {
+    typeText(); // Start typing effect on page load
+};
+
+
+
